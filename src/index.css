@@ -18,6 +18,205 @@ code {
   height: 100%;
   width: 100%;
 }
-button{
-  margin-right: 1%;
+
+.accountWallet{
+  background-color: rgb(130, 199, 245);
+  height: 10%;
+  width: 100%;
+  position: fixed;
+  color: white;
+  padding-left: 3%;
+  padding-top: 0.8%;
+}
+
+span{
+  font-weight: bold;
+  border-radius: 5px;
+}
+.pay{
+  position: absolute;
+  background-color: rgb(243, 188, 115);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  height: 30px;
+  margin-left: 70%;
+  margin-top: -3%;
+}
+.withdraw{
+  position: absolute;
+  background-color: rgb(240, 155, 45);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  height: 30px;
+  margin-left: 75%;
+  margin-top: -3%;
+}
+.connectwallet{
+  background-color: rgb(212, 121, 3);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  height: 30px;
+  position: absolute;
+  margin-top: -3%;
+  margin-left: 83%;
+}
+
+/* Header */
+.header-right {
+  position: absolute;
+  width: 15%;
+  height: 5%;
+  padding-top: 6.5%;
+  padding-left: 4%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.icon{
+  background-color: white;
+  margin-left: 60%;
+  margin-top: 1.3%;
+  position: absolute;  
+}
+#search{
+  border-radius: 10px;
+  border: none;
+  padding-left: 10px;
+}
+.header{
+  padding-top: 4%;  
+  background-color: blanchedalmond;
+  text-align: center;
+
+}
+h1{
+  font-family: "Parisienne";
+}
+
+/* menu */
+
+#Menu {
+  margin-top: -2%;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f5c78c;
+}
+
+#Menu ul {
+  width: 80%;
+  height: 100%;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+#Menu a {
+  font-family: "Abhaya Libre";
+  color: black;
+  font-size: 20px;
+  text-decoration: none;
+  margin-right: 50px;
+}
+
+#Menu a:hover {
+  color: #ffffff;
+}
+/* category */
+h2{
+  font-family: "Parisienne";
+  padding-bottom: 1%;
+  border-bottom: 2px solid black;
+  width: 15%;
+  margin-left: 42.5%;
+}
+.Tagname{
+  font-family: "Abhaya Libre";
+  background-color: #f5c78c;
+  font-weight: bold;
+  margin-left: 3%;
+  font-size: 18px;
+  width: 10%;
+  height: 20px;
+  text-align: center;
+  margin-bottom: 28%;
+  border-radius: 5px;
+}
+.productpic{
+  display: flex;
+  justify-content: space-between;
+}
+.product{
+  margin-right: 55%;
+}
+.price{
+  color: green;
+}
+img{
+  height: 150px;
+  width: 150px;
+  border-radius: 10px;
+  
+}
+img:hover{
+  border: 2px solid #f5c78c;
+  box-shadow:rgb(75, 70, 65) 2px 2px;
+}
+
+/* footer */
+.Footer {
+  width: 100%;
+  height: 250px;
+  margin-top: 200px; 
+  background-color: #ffffff;
+}
+
+.Fo-nav {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffcf91;
+}
+
+.Fo-nav h1 {
+  width: 20%;
+  text-align: center;
+  font-family: "Parisienne";
+  font-size: 40px;
+  margin-top: 60px;
+}
+
+.Fo-nav table {
+  width: 20%;
+  margin-right: 2%;
+  font-size: 20px;
+  font-family: "Abhaya Libre";
+}
+
+.Fo-nav table a {
+  color: black;
+  padding-right: 20px;
+  text-decoration: none;
+}
+.Fo-nav table a:hover {
+  color: #ffffff;
+}
+
+#Social {
+  display: flex;
+  justify-content:flex-start;
+}
+#Social img{
+  margin-top: -1%;
+  height: 30px;
+  width: 30px;
+  
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
 }
