@@ -2,19 +2,33 @@ import Web3 from "web3";
 import { useState, useEffect } from "react";
 import detectEthereumProvider from "@metamask/detect-provider"
 import flower from './images/category-flower.png'
+import flower1 from './images/hoathom.png'
+import flower2 from './images/hoahuongduong.png'
+import flower3 from './images/hoahuongduong1.png'
+import flower4 from './images/hoahong.png'
 import candle from './images/category-candle1.png'
+import candle1 from './images/candle2.png'
+import candle2 from './images/candle3.png'
+import candle3 from './images/candle4.png'
+import candle4 from './images/category-candle.jpg'
+import envelope1 from './images/thiep3.png'
+import envelope2 from './images/thiep2.jpg'
+import envelope3 from './images/thiep1.png'
+import envelope4 from './images/mockhoa.png'
 import envelope from './images/category-card.png'
 import fb from './images/fb.png'
 import ins from './images/Instagram.png'
 import switter from './images/Switter.png'
+// import {loadContract} from "./utils/load-contract";
 function App() {
 
   const [Web3Api, setWeb3Api] = useState({
     provider: null,
     web3: null,
   });
-  const [account, setAccount] = useState();
-
+  const [account, setAccount] = useState(null);
+  const [balance, setBalance] = useState(null);
+  
   useEffect( ()=> {
     const getAccount = async ()=> {
       const accounts = await Web3Api.web3.eth.getAccounts();
@@ -22,9 +36,20 @@ function App() {
     }
     Web3Api.web3 && getAccount()
   },[Web3Api.web3]);
+
+  useEffect( ()=> {
+    const getBalance = async ()=> {
+      const {contract, web3} = Web3Api;
+      const balance = await web3.eth.getBalance(contract.address);
+      setBalance(web3.utils.fromWei(balance, "ether"));
+    }
+    Web3Api.contract && getBalance()
+  },[Web3Api]);
+
   useEffect( ()=> {
     const loadProvider = async ()=> {
       const provider = await detectEthereumProvider();
+      // const contract = await loadContract("Edapp", provider)
       if (provider) {
         console.log('Ethereum successfully detected!')
         setWeb3Api({
@@ -52,7 +77,7 @@ function App() {
         }
         
           <br></br>
-          <span>Current Balance:</span> <b></b>
+          <span>Current Balance:</span> <b>{balance}</b> ETH
         </div>
         <button className="connectwallet" onDoubleClick={()=>
             Web3Api.provider.request({method: "eth_requestAccounts"})
@@ -86,28 +111,38 @@ function App() {
       <div className="productpic">
         <div className="product">
         <img src={flower} alt="product-pic"/>
+        <p className="user">Handmade Club</p>
         <p className="name">Dry Flower</p>
         <p className="price">0.29 ETH</p>
+        <button className="buy">Buy now</button>
         </div>
         <div className="product">
-        <img src={flower} alt="product-pic"/>
-        <p className="name">Dry Flower</p>
-        <p className="price">0.29 ETH</p>
+        <img src={flower1} alt="product-pic"/>
+        <p className="user">Handmade Shop</p>
+        <p className="name">Smell Flower</p>
+        <p className="price">0.15 ETH</p>
+        <button className="buy">Buy now</button>
         </div>
         <div className="product">
-        <img src={flower} alt="product-pic"/>
-        <p className="name">Dry Flower</p>
-        <p className="price">0.29 ETH</p>
+        <img src={flower2} alt="product-pic"/>
+        <p className="user">My Gifs</p>
+        <p className="name">Knitted Sunflowers</p>
+        <p className="price">0.2 ETH</p>
+        <button className="buy">Buy now</button>
         </div>
         <div className="product">
-        <img src={flower} alt="product-pic"/>
-        <p className="name">Dry Flower</p>
-        <p className="price">0.29 ETH</p>
+        <img src={flower3} alt="product-pic"/>
+        <p className="user">Beatiful Life</p>
+        <p className="name">Sunflower bouquet</p>
+        <p className="price">0.32 ETH</p>
+        <button className="buy">Buy now</button>
         </div>
         <div className="product">
-        <img src={flower} alt="product-pic"/>
-        <p className="name">Dry Flower</p>
-        <p className="price">0.29 ETH</p>
+        <img src={flower4} alt="product-pic"/>
+        <p className="user">Kumori Shop</p>
+        <p className="name">Knitted Rose</p>
+        <p className="price">0.18 ETH</p>
+        <button className="buy">Buy now</button>
         </div>
       </div>
     </div>
@@ -116,28 +151,38 @@ function App() {
       <div className="productpic">
         <div className="product">
         <img src={candle} alt="product-pic"/>
+        <p className="user">Mutant Alex Club</p>
         <p className="name">Scented candles</p>
         <p className="price">0.1 ETH</p>
+        <button className="buy">Buy now</button>
         </div>
         <div className="product">
-        <img src={candle} alt="product-pic"/>
+        <img src={candle1} alt="product-pic"/>
+        <p className="user">Mutant Alex Club</p>
         <p className="name">Scented candles</p>
         <p className="price">0.1 ETH</p>
+        <button className="buy">Buy now</button>
         </div>
         <div className="product">
-        <img src={candle} alt="product-pic"/>
+        <img src={candle2} alt="product-pic"/>
+        <p className="user">Mutant Alex Club</p>
         <p className="name">Scented candles</p>
         <p className="price">0.1 ETH</p>
+        <button className="buy">Buy now</button>
         </div>
         <div className="product">
-        <img src={candle} alt="product-pic"/>
+        <img src={candle3} alt="product-pic"/>
+        <p className="user">Mutant Alex Club</p>
         <p className="name">Scented candles</p>
         <p className="price">0.1 ETH</p>
+        <button className="buy">Buy now</button>
         </div>
         <div className="product">
-        <img src={candle} alt="product-pic"/>
+        <img src={candle4} alt="product-pic"/>
+        <p className="user">Mutant Alex Club</p>
         <p className="name">Scented candles</p>
         <p className="price">0.1 ETH</p>
+        <button className="buy">Buy now</button>
         </div>
       </div>
     </div>
@@ -146,28 +191,38 @@ function App() {
       <div className="productpic">
         <div className="product">
         <img src={envelope} alt="product-pic"/>
+        <p className="user">Mutant Alex Club</p>
         <p className="name">Vintage envelope</p>
         <p className="price">0.1 ETH</p>
+        <button className="buy">Buy now</button>
         </div>
         <div className="product">
-        <img src={envelope} alt="product-pic"/>
+        <img src={envelope1} alt="product-pic"/>
+        <p className="user">Mutant Alex Club</p>
         <p className="name">Vintage envelope</p>
         <p className="price">0.1 ETH</p>
+        <button className="buy">Buy now</button>
         </div>
         <div className="product">
-        <img src={envelope} alt="product-pic"/>
+        <img src={envelope2} alt="product-pic"/>
+        <p className="user">Mutant Alex Club</p>
         <p className="name">Vintage envelope</p>
         <p className="price">0.1 ETH</p>
+        <button className="buy">Buy now</button>
         </div>
         <div className="product">
-        <img src={envelope} alt="product-pic"/>
+        <img src={envelope3} alt="product-pic"/>
+        <p className="user">Mutant Alex Club</p>
         <p className="name">Vintage envelope</p>
         <p className="price">0.1 ETH</p>
+        <button className="buy">Buy now</button>
         </div>
         <div className="product">
-        <img src={envelope} alt="product-pic"/>
+        <img src={envelope4} alt="product-pic"/>
+        <p className="user">Mutant Alex Club</p>
         <p className="name">Vintage envelope</p>
         <p className="price">0.1 ETH</p>
+        <button className="buy">Buy now</button>
         </div>
       </div>
     </div>
